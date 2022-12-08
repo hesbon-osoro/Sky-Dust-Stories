@@ -1,0 +1,88 @@
+@charset "utf-8";
+
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 4
+   Case Problem 1
+   
+   Star Dust Stories Design Styles
+   Author: Hesbon Osoro
+   Date: 12/8/22 
+   Filename: sd_effects.css
+
+*/
+
+/* HTML Styles */
+
+html {
+  background: url(sd_back1.png) 100% / cover fixed;
+}
+
+/* Body Styles
+Andrew wants the web page body background to combine several images and effects. Go to the Body Styles section and create a style rule for the body element that adds the following backgrounds in the order listed:
+
+A background containing the night sky image, sd_back2.png
+A radial gradient circle with a size extending to the closest corner and placed at the coordinates (40%, 70%) containing the color white stopping at 15% of the gradient and the color value rgba(151, 151, 151, 0.5) stopping at 50%
+A radial gradient circle also extending to the closest corner and placed at (80%, 40%) containing the color white stopping at 15% and followed by the color rgba(0, 0, 0, 0) at 30%
+A radial gradient extending to the closest side and placed at (10%, 20%) containing the color white stopping at 20% and followed by the color rgba(0, 0, 0, 0) stopping at 45%
+A radial gradient with a size of 5% in the horizontal and vertical directions placed at (90%, 10%) with the color white stopping at 15% and followed by the color rgba(0, 0, 0, 0) stopping at 40%
+The background color rgb(151, 151, 151) set as a base for the preceding background image
+Within the style rule for the page body, add styles to place box shadows on the left and right borders. Set the color of the first shadow to rgb(31, 31, 31) with horizontal and vertical offsets of 30 pixels and 0 pixels and a blur of 45 pixels. Set the second shadow equal to the first except that the horizontal offset should be –30 pixels.
+
+ */
+/* Body Styles */
+
+body {
+  background: url(sd_back2.png),
+    radial-gradient(
+      circle closest-corner at 40% 70%,
+      white 15%,
+      rgba(151, 151, 151, 0.5) 50%
+    ),
+    radial-gradient(
+      circle closest-corner at 80% 40%,
+      white 15%,
+      rgba(0, 0, 0, 0) 30%
+    ),
+    radial-gradient(closest-side at 10% 20%, white 20%, rgba(0, 0, 0, 0) 45%),
+    radial-gradient(5% 5% at 90% 10%, white 15%, rgba(0, 0, 0, 0) 40%),
+    rgb(151, 151, 151);
+  box-shadow: 30px 0px 45px rgb(31, 31, 31), -30px 0px 45px rgb(31, 31, 31);
+}
+
+/* Navigation List Styles */
+
+body > header a {
+  border: 5px outset rgb(211, 211, 255);
+}
+
+/* Section Left Styles
+Next, format the appearance of the article title. Go to the Section Left Styles section and create a style rule for the h1 heading in the left section article that changes the text color to rgb(211, 211, 211) and adds a black text shadow with 0-pixel offsets and a blur size of 5 pixels.
+
+Andrew has included an image of Charles Messier, the originator of the Messier catalog of stellar objects. The image is marked with the id “mportrait”. In the Section Left Styles section, create a style rule for this object that modifies the appearance of this image by applying the following filters:
+
+the drop-shadow filter with a horizontal offset of –15 pixels, a blur of 5 pixels, and a color of rgba(51, 51, 51, 0.9);
+a grayscale filter with a value of 0.7; and
+an opacity filter with a value of 0.6.
+Andrew wants the Charles Messier image flipped horizontally. Add a style to transform the image by rotating it 180° around the y-axis. For the best results, prepend the -webkit prefix to the drop-shadow filter and the transform styles. */
+
+/* Section Left Styles */
+
+section#left > article > h1 {
+  color: rgb(211, 211, 211);
+  text-shadow: 0px 0px 5px black;
+}
+
+#mportrait {
+  filter: drop-shadow(-15px 0px 5px rgba(51, 51, 51, 0.9)) grayscale(0.7)
+    opacity(0.6);
+  -webkit-filter: drop-shadow(-15px 0px 5px rgba(51, 51, 51, 0.9))
+    grayscale(0.7) opacity(0.6);
+  -webkit-transform: rotateY(180deg);
+}
+
+/* Footer Styles */
+
+footer {
+  border-top: 2px solid rgb(171, 171, 171);
+}
